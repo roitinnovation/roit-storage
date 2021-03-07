@@ -1,26 +1,34 @@
 {
-  "name": "roit-base-lib",
+  "name": "@roit/roit-storage",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "src/index.ts",
+  "repository": "github:roitinnovation/roit-storage",
+  "homepage": "https://github.com/roitinnovation/roit-storage#readme",
   "scripts": {
     "build": "tsc --incremental -p tsconfig.build.json",
-    "deploy": "npm run build && npm test && npm publish --access public --scope=roit",
-    "test": "mocha --timeout 15000 -r ts-node/register test/**/*.spec.ts"
+    "deploy": "npm run build && npm publish --access public --scope=roit"
   },
-  "author": "Author",
+  "author": "ROIT Innovation",
   "devDependencies": {
     "@types/chai": "^4.2.0",
     "@types/mocha": "^5.2.7",
-    "@types/node": "^6.0.46",
-    "typescript": "3.7.4",
-    "ts-node": "^8.3.0",
+    "@types/node": "^6.14.13",
     "chai": "^4.2.0",
-    "mocha": "^6.2.0"
+    "mocha": "^6.2.0",
+    "ts-node": "^8.3.0",
+    "typescript": "3.7.4"
   },
   "dependencies": {
-    
+    "@google-cloud/storage": "^5.8.1",
+    "roit-environment": "^1.1.1"
   },
   "keywords": [
+    "nestjs",
+    "typescript",
+    "roit",
+    "storage",
+    "gcp",
+    "google cloud storage"
   ]
 }
