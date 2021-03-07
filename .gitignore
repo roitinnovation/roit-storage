@@ -57,3 +57,5 @@ modules.xml
 .idea/
 
 .vscode/
+
+package-lock.json
