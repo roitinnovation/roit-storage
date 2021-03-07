@@ -7,7 +7,7 @@ export class GoogleCloudConfig implements CloudConfig {
     private readonly credentials: CredentialBody
 
     constructor() {
-        const credentialFile = Environment.getProperty('pubSubCredential')
+        const credentialFile = Environment.getProperty('googleStorageCredential')
         this.credentials = require(credentialFile)
     }
 
