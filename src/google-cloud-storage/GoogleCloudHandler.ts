@@ -8,9 +8,15 @@ export class GoogleCloudHandler implements CloudHandler {
     private readonly storage: Storage
 
     constructor() {
-        this.storage = new Storage({
-            credentials: this.gcloudConfig.getCredentials()
-        })
+        const credentials = this.gcloudConfig.getCredentials()
+        
+        if(credentials) {
+            this.storage = new Storage({
+                credentials
+            })
+        } else {
+            this.storage = new Storage()
+        }
     }
 
     getInstance(): GoogleCloudHandler {

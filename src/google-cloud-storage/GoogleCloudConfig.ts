@@ -4,18 +4,20 @@ import { CredentialBody } from 'google-auth-library'
 
 export class GoogleCloudConfig implements CloudConfig {
 
-    private readonly credentials: CredentialBody
+    private readonly credentials: CredentialBody | undefined
 
     constructor() {
         const credentialFile = Environment.getProperty('googleStorageCredential')
-        this.credentials = require(credentialFile)
+        if(credentialFile) {
+            this.credentials = require(credentialFile)
+        }
     }
 
     getConfig(): GoogleCloudConfig {
         return this
     }
 
-    getCredentials(): CredentialBody {
+    getCredentials(): CredentialBody | undefined {
         return this.credentials
     }
 }
