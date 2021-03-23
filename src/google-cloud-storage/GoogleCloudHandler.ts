@@ -30,6 +30,10 @@ export class GoogleCloudHandler implements CloudHandler {
         return `File ${filePath} uploaded to bucket ${bucketName}`
     }
 
+    async uploadBufferToStorage(filePath: string, file: Buffer, bucketName: string, optionsStorage?: UploadOptions) {
+        await this.storage.bucket(bucketName).file(filePath, optionsStorage).save(file)
+    }
+
     private async uploadWithOptions(filePath: string, bucketName: string, optionsStorage: UploadOptions): Promise<void> {
         await this.storage.bucket(bucketName).upload(filePath, optionsStorage)
     }
